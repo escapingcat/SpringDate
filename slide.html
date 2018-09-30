@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .head1{
+           background:rgb(255,192,203);
+       }
+    .up{
+        height:1.5rem;
+        font-size:.25rem;
+        color:white;
+        padding-left:20%;
+        font-weight: bold;
+        line-height:.75rem;
+         /* background:url("images/love.jpg") no-repeat ;
+         background-size:100% 100%; */
+         /* opacity: .7; */
+         
+         /* background-color:rgb(0,178,238);  */
+         background: 	#FFC0CB;
+    }
+    .sum{
+        position: absolute;
+        right:40%;
+        font-size:.35rem;
+    }
+    .team{
+        position:absolute;
+        right:25%;
+        font-size:.35rem;
+    }
+    .thumbnail img{
+        border-radius: 50%;
+         
+    }
+    .span1 p{
+        text-align: right;
+        padding-right:.15rem;
+    }
+    .bui-box-align-top{
+        background:white;
+    }
+    .item-title{
+        padding-top:.05rem;
+        color:deepskyblue;
+        font-size:.27rem;
+        font-weight: bold;
+        font-family: MicrosoftJhengHei;
+    }
+    .item-info{
+        width:1.6rem;
+        font-size:.25rem;
+        background-color:rgba(255,192,203,.6);
+        border-radius: .07rem;
+        margin-bottom:.1rem;
+        overflow: hidden;
+    }
+    .item-info span img{
+        width:.2rem;
+        height:.2rem;
+        margin-left:.1rem;
+    }
+    .item-sig,.school{
+        font-size:.23rem;
+        font-weight: bold;
+        color:#666;
+        font-family: STKaiti;
+    }
+    .single{
+        width:.3rem;
+        height:.3rem;
+        font-size:.22rem;
+        float:right;
+        line-height: .3rem;
+        margin-right:.2rem;
+        text-align: center;
+        border-radius: 50%;
+        color:white;
+        background-color:rgb(30,144,255);
+    }
+    .age{
+        text-align: center;
+        margin-left: 15%;
+    }
+    .star{
+        margin-left: 15%;
+        font-size:.22rem;
+    }
+    .bui-li{
+        background-color: deepskyblue;
+    }
+
+    .thumbnail1{
+        width:1.2rem;
+        height:100%;
+    }
+    .thumbnail1 img{
+        width:100%;
+        height:100%;
+        border-radius: 50%;
+       margin:20% 20%;
+    }
+    .sec-ul li{
+        list-style: none;
+        padding-left:20%;
+        text-align:left;
+        color:white;
+        height:.26rem;
+        line-height: .3rem;
+        font-size:.19rem;
+        margin-top:.05rem;
+    }
+    .sec-ul li a{
+        height:100%;
+    }
+    .sec-ul .first{
+        font-weight: bold;
+        font-size:.25rem;
+    }
+    .input-li{
+        margin-left:.2rem;
+    }
+    .bui-label{
+        /* margin:.2rem; */
+        margin:.12rem .2rem;
+    }
+    .bui-value{
+        margin-right:.3rem;
+        float:right;
+    }
+    /* .bui-li3{
+        height:15%;
+    } */
+    .bui-li4{
+        height:25%;
+    }
+    .bui-li4 img{
+        width:30%;
+        height:100%;
+    }
+    .bui-li4 bui-btn{
+        text-align: center;
+        padding-left:20%;
+    }
+    .btn{
+        width:50%;
+        height:100%;
+        float:left;
+    }
+    .edit-div{
+        background: #eee;
+    }
+    .bui-edit{
+        border-right:.02rem solid black; 
+    }
+    .content1>li{
+        list-style:none;
+        display: none;
+
+    }
+    .content1>.show{
+        display:block;
+    }
+    .up3{
+        height:1.5rem;
+        font-size:.25rem;
+        padding-left:20%;
+        font-weight: bold;
+        line-height:.75rem;
+    }
+    .thumbnail img{
+        border-radius: 50%;
+    }
+    .bui-text{
+        color:black;
+        font-size:.25rem;
+    }
+    .user-name{
+        color:orange;
+    }
+    .state{
+        float:right;
+        margin-right:20%;
+    }
+    .square{
+        background:#7EC0EE !important;
+    }
+    .our{
+        display: none;
+    }
+   </style>
+   <script src="js/jquery-1.11.1.js"></script>
+   <script src="js/zepto.js"></script>
+    <script src="js/bui.js"></script>
+    
+    <script>
+        $(function(){
+            $(".tabFootNav>li").click(function(){
+                $(this).addClass("active");
+                $(this).siblings().removeClass("active");
+                var index=$(this).index();
+                if(index==0){
+                    $(".bui-bar-main").html("好友列表");
+                   $("header").addClass("square");
+                   $(".bui-bar-right>a>i").html("&#xe613;");
+                   $(".bui-bar-left>a>i").html("")
+                }
+                else if(index==1){
+                    $("header").removeClass("square");
+                    $(".bui-bar-main").html("消息");
+                    $(".bui-bar-right>a>i").html("");
+                    $(".bui-bar-left>a>i").html("");
+                }
+                else{
+                    $("header").removeClass("square");
+                    $(".bui-bar-main").html("个人信息");
+                    $(".bui-bar-right>a>i").html("");
+                    $(".bui-bar-left>a>i").html("");
+                }
+                var $li=$(".content1>li").eq(index);
+                $li.siblings().removeClass("show");
+                $li.addClass("show");
+            });
+        })
+            
+        </script>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar square">
+          <div class="bui-bar-left" onclick="">
+              <a onclick="" class="bui-btn">
+                  <i class="icon">&#xe60c;</i>
+              </a>
+          </div>
+
+        <div class="bui-bar-main">
+          好友列表
+        </div>
+        <div class="bui-bar-right">
+                <a onclick="" class="bui-btn">
+                        <i class="icon">&#xe613;</i>
+                </a>  
+        </div>
+      </header>
+      <main>
+          <ul class="content1">
+              <li id="square" class="show">
+                    <div class="up " style="position:relative;">
+                            <!-- <div style="z-index:-1;width:100%;height:100%;"><img src="images/love.jpg" style="width:100%;height:100%" alt=""></div> -->
+                            <div>已配对：<span class="sum">280</span><span class="team">对</span></div>
+                            <div>剩余名额：<span class="sum">100</span><span class="team">对</span></div>
+                        </div>
+                        <div>  
+                          <ul class="bui-list news-list">
+                              <li class="bui-btn bui-box-align-top list" >
+                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                                  <div class="span1">
+                                      <h3 class="item-title">权律二</h3>
+                                      <div class="item-info"><span><img src="images/f.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
+                                      <div class="item-text bui-box">
+                                          <div class="span1">
+                                              <div class="item-sig">个性签名</div>
+                                              </div>     
+                                      </div>
+                                  </div>    
+                                  <div class="span1">
+                                      <p class="school">西安交通大学</p><br/>
+                                      <p class="single">单</p>
+                                  </div>
+                              </li>
+                              <li class="bui-btn bui-box-align-top">
+                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                                  <div class="span1">
+                                      <h3 class="item-title">权律二</h3>
+                                      <div class="item-info" style="background: #97FFFF;"><span><img src="images/m.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
+                                      <div class="item-text bui-box">
+                                          <div class="span1">
+                                              <div class="item-sig">个性签名</div>
+                                              </div>     
+                                      </div>
+                                  </div>    
+                                  <div class="span1">
+                                      <p class="school">西安交通大学</p><br/>
+                                      <p class="single">单</p>
+                                  </div>
+                              </li>
+                              <li class="bui-btn bui-box-align-top">
+                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                                  <div class="span1">
+                                      <h3 class="item-title">权律二</h3>
+                                      <div class="item-info"><span><img src="images/f.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
+                                      <div class="item-text bui-box">
+                                          <div class="span1">
+                                              <div class="item-sig">个性签名</div>
+                                              </div>     
+                                      </div>
+                                  </div>    
+                                  <div class="span1">
+                                      <p class="school">西安交通大学</p><br/>
+                                      <p class="single">单</p>
+                                  </div>
+                              </li>  
+                          </ul>
+                        </div>
+                   
+             </li>
+             
+             <li>
+                    <div class="bui-input">
+                            <input type="text">
+                        </div>
+                        <div class="up3">
+                     
+                        </div>
+                        <div>  
+                          <ul class="bui-list news-list">
+                              <li class="bui-btn bui-box-align-middle">
+                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                                  <div class="span1">
+                                      <div class="bui-text">我向<span class="user-name">薛城</span>提交了答案</div>
+                                  </div>    
+                                  <div class="span1">
+                                      <div class="state">待阅</div>
+                                  </div>
+                              </li>
+                              <li class="bui-btn bui-box-align-middle">
+                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                                  <div class="span1">
+                                      <div class="bui-text">我向<span class="user-name">大橙子</span>提交了答案</div>
+                                  </div>    
+                                  <div class="span1">
+                                      <div class="state">已阅</div>
+                                  </div>
+                              </li>   
+                          </ul>
+                        </div>
+             </li>
+             <li >
+                    <ul class="bui-list news-list ">
+                            <li class="bui-btn bui-box-align-top bui-li">
+                                <div class="thumbnail1"><img src="images/1.jpg" alt=""></div>
+                                <div class="span1">
+                                    <ul class="bui-list sec-ul">
+                                        <li class="first">姓名:&nbsp&nbsp<span class="input-li">二狗子</span></li>
+                                        <li>签名：<span class="input-li">我是一只真的二狗</span></li>
+                                        <li>学校：<span class="input-li">西安交通大学</span></li>
+                                        <li>学院：<span class="input-li">电气工程学院</span></li>
+                                        <li><a><i class="icon" style="margin-right: 0">&#xe62d;</i>个人信息修改</a></li>
+                                    </ul>
+                                </div>    
+                            </li>
+                        </ul>
+                        <ul class="bui-list contact-list">
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label ">家乡：</label>
+                                <div class="span1">
+                                    <div class="bui-value">陕西西安</div>
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label">身高：</label>
+                                <div class="span1">
+                                    <div class="bui-value">180CM</div>
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label">年龄：</label>
+                                <div class="span1">
+                                    <div class="bui-value">20岁</div>
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label">学历：</label>
+                                <div class="span1">
+                                    <div class="bui-value">本科</div>
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label">体型：</label>
+                                <div class="span1">
+                                    <div class="bui-value">匀称</div>
+                                </div>
+                            </li>  
+                            <li class="bui-btn bui-box clearactive bui-li3">
+                                <label class="bui-label">兴趣爱好：</label>
+                                <div class="span1">
+                                    <div class="bui-value">吃饭睡觉打豆豆</div>
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive bui-li4">
+                                <label class="bui-label">相册：</label>
+                                <div class="span1">
+                                    <img src="images/1.jpg" alt="">
+                                </div>
+                            </li>
+                            <li class="bui-btn bui-box clearactive">
+                                    <div class="span1"><div class="bui-btn bui-edit edit-div">编辑我的答卷</div></div>
+                                    <div class="span1"><div class="bui-btn edit-div">问题反馈</div></div>
+                                </li>
+                        </ul>        
+             </li>
+            </ul>
+      </main>
+      <footer>
+            <ul  class="bui-nav main-nav tabFootNav">
+                    <li class="bui-btn bui-box-vertical  active" href="">
+                        <i class="icon">&#xe600;</i>
+                        <div class="span1">广场</div>
+                    </li>
+                    
+                    <li class="bui-btn bui-box-vertical" href="">
+                        <i class="icon">&#xe677;</i>
+                        <div class="span1">消息</div>
+                    </li>
+                    <li class="bui-btn bui-box-vertical" href="">
+                        <i class="icon">&#xe67a;</i>
+                        <div class="span1">我的</div>
+                    </li>
+                    
+                </ul>
+      </footer>
+    </div>  
+    
+  </body>
+</html>

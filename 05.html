@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+    .bui-li{
+        background-color: deepskyblue;
+    }
+
+    .thumbnail1{
+        width:1.2rem;
+        height:100%;
+    }
+    .thumbnail1 img{
+        width:100%;
+        height:100%;
+        border-radius: 50%;
+       margin:20% 20%;
+    }
+    .sec-ul li{
+        list-style: none;
+        padding-left:20%;
+        text-align:left;
+        color:white;
+        height:.26rem;
+        line-height: .3rem;
+        font-size:.19rem;
+        margin-top:.05rem;
+    }
+    .sec-ul li a{
+        height:100%;
+    }
+    .sec-ul .first{
+        font-weight: bold;
+        font-size:.25rem;
+    }
+    .input-li{
+        margin-left:.2rem;
+    }
+    .bui-label{
+        /* margin:.2rem; */
+        margin:.12rem .2rem;
+    }
+    .bui-value{
+        margin-right:.3rem;
+        float:right;
+    }
+    /* .bui-li3{
+        height:15%;
+    } */
+    .bui-li4{
+        height:25%;
+    }
+    .bui-li4 img{
+        width:30%;
+        height:100%;
+    }
+    .bui-li4 bui-btn{
+        text-align: center;
+        padding-left:20%;
+    }
+    .btn{
+        width:50%;
+        height:100%;
+        float:left;
+    }
+    .edit-div{
+        background: #eee;
+    }
+    .bui-edit{
+        border-right:.02rem solid black; 
+    }
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+        </header>
+      <main>
+        <ul class="bui-list news-list ">
+            <li class="bui-btn bui-box-align-top bui-li">
+                <div class="thumbnail1"><img src="images/1.jpg" alt=""></div>
+                <div class="span1">
+                    <ul class="bui-list sec-ul">
+                        <li class="first">姓名:&nbsp&nbsp<span class="input-li">二狗子</span></li>
+                        <li>签名：<span class="input-li">我是一只真的二狗</span></li>
+                        <li>学校：<span class="input-li">西安交通大学</span></li>
+                        <li>学院：<span class="input-li">电气工程学院</span></li>
+                        <li><a><i class="icon" style="margin-right: 0">&#xe62d;</i>个人信息修改</a></li>
+                    </ul>
+                </div>    
+            </li>
+        </ul>
+        <ul class="bui-list contact-list">
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label ">家乡：</label>
+                <div class="span1">
+                    <div class="bui-value">陕西西安</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">身高：</label>
+                <div class="span1">
+                    <div class="bui-value">180CM</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">年龄：</label>
+                <div class="span1">
+                    <div class="bui-value">20岁</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">学历：</label>
+                <div class="span1">
+                    <div class="bui-value">本科</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">体型：</label>
+                <div class="span1">
+                    <div class="bui-value">匀称</div>
+                </div>
+            </li>  
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">兴趣爱好：</label>
+                <div class="span1">
+                    <div class="bui-value">吃饭睡觉打豆豆</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li4">
+                <label class="bui-label">相册：</label>
+                <div class="span1">
+                    <img src="images/1.jpg" alt="">
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive">
+                    <div class="span1"><div class="bui-btn bui-edit edit-div">编辑我的答卷</div></div>
+                    <div class="span1"><div class="bui-btn edit-div">问题反馈</div></div>
+                </li>
+        </ul>        
+        
+      </main>
+      <footer>
+      <ul id="tabDynamicNav" class="bui-nav main-nav">
+            <li class="bui-btn bui-box-vertical " href="pages/main/minespace.html">
+                <i class="icon">&#xe600;</i>
+                <div class="span1">广场</div>
+            </li>
+            
+            <li class="bui-btn bui-box-vertical " href="pages/main/home.html">
+                <i class="icon">&#xe677;</i>
+                <div class="span1">消息</div>
+            </li>
+            <li class="bui-btn bui-box-vertical active" href="pages/main/contact.html">
+                <i class="icon">&#xe67a;</i>
+                <div class="span1">我的</div>
+            </li>
+            
+        </ul>
+        </footer>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

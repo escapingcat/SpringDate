@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" type="text/css" href="css/skin.css"/>
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .img_wrap{
+         text-align: center
+     }
+     .login-page main{
+        background-color: #ffffff;
+    }
+    .login-form {
+        padding-left: .3rem;
+        padding-right: .3rem;
+    }
+    .login-form .bui-list{
+        border-top: none;
+        margin-bottom: .3rem;
+    }
+    .login-form .bui-btn{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .login-form .bui-label{
+        width: 1rem;
+        margin-left:.3rem;
+        color:black;
+
+    }
+    #sex1,#sex2{
+        margin:auto .3rem;
+    }
+    .login-form .bui-input {
+        height: .7rem;
+    }
+    .login-form .primary{
+        background-color: #52a4ff;
+        color: #ffffff;
+        font-size: 0.26rem;
+        -webkit-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        margin-bottom: .2rem;
+    }
+    .login-form{
+        text-align: center;
+        color: black;
+        font-size: 0.2rem;
+    }
+	.round_icon{
+	  width: 100px;
+	  height: 100px;
+	  border-radius: 50%;
+	  display:block;
+	  margin:0 auto;
+	}
+	
+	
+	
+.con4{
+     width: 300px;
+     height: auto;
+     overflow: hidden;
+     margin: 20px auto;
+     color: #FFFFFF;
+}
+.con4 .btn{
+     width: 100%;
+     height: 40px;
+     line-height: 40px;
+     text-align: center;
+     background: #d8b49c;
+     display: block;
+     font-size: 16px;
+     border-radius: 5px;
+}
+.upload{
+     float: left;
+     position: relative;
+}
+.upload_pic{
+     display: block;
+     width: 100%;
+     height: 40px;
+     position: absolute;
+     left: 0;
+     top: 0;
+     opacity: 0;
+     border-radius: 5px;
+}
+
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+            <div class="bui-bar-left" onclick="bui.back();">
+                    <a onclick="bui.back()" class="bui-btn">
+                        <i class="icon-back"></i>
+                    </a>
+                </div>
+            <div class="bui-bar-main">
+                    个人信息填写
+            </div>
+            <div class="bui-bar-right">
+            </div>
+        </header>
+      <main>
+	  <div id="registerVM">
+	<div class="con4">
+		<img src="./images/face.png" class="round_icon" preview alt="" id="icon">
+		<span class="btn upload">上传头像<input type="file" class="upload_pic" id="upload" v-on:change="onfilechange"/></span>
+	</div>
+            <div class="login-form">
+                    <ul class="bui-list">
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="Name">昵称</label>
+                            <div class="span1">
+                                <div class="bui-input user-input">
+                                    <input id="name" type="text" name="Name" v-model="user.name" autofocus>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="PerSig">个性签名</label>
+                            <div class="span1">
+                                <div class="bui-input user-input">
+                                    <input  type="text" name="PerSig" v-model="user.motto">
+                                 </div>
+                            </div>
+                        </li>
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label">性别</label>
+                                <div class="span1">
+                                    <div class="bui-input user-input">
+                                        <input id="sex1" type="radio" name="sex" v-model="user.gender" value="男">男
+                                        <input id="sex2" type="radio" name="sex" v-model="user.gender" value="女">女
+                                     </div>
+                                </div>
+                        </li>
+
+
+                         <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="birth">生日</label>
+                            <div class="span1">
+                                <div class="bui-input user-input">
+                                    <input  type="date" name="birth" v-model="user.birth">
+                                </div>
+                            </div>
+                        </li>  
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="home">家乡</label>
+                                <div class="span1">
+                                    <div class="bui-input user-input">
+                                        <input  type="text" name="home" v-model="user.home">
+                                    </div>
+                                </div>
+                        </li>
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="school">学校</label>
+                                <div class="span1">
+                                    <div class="bui-input user-input">
+                                        <input type="text" name="school" v-model="user.school">
+                                    </div>
+                                </div>
+                        </li>
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="major">专业</label>
+                                <div class="span1">
+                                    <div class="bui-input user-input">
+                                        <input  type="text" name="major" v-model="user.major">
+                                    </div>
+                                </div>
+                        </li>  
+                        <li class="bui-btn bui-box clearactive">
+                            <label class="bui-label" for="interest">兴趣</label>
+                                <div class="span1">
+                                    <div class="bui-input user-input">
+                                        <input  type="text" name="interest" v-model="user.interest">
+                                    </div>
+                                </div>
+                        </li> 						
+                    </ul>
+                    <div class="bui-btn round primary" v-on:click="sendRegiser">确定</div>
+                </div>
+        </div>
+      </main>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+    <script src="js/bui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="js/vue-photo-preview.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

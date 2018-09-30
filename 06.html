@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+    .up3{
+        height:1.5rem;
+        font-size:.25rem;
+        font-weight: bold;
+        line-height:.75rem;
+    }
+    .up3 img{
+        margin-top:.1rem;
+        width:1rem;
+        height:1rem;
+        margin-left:22%;
+    }
+    .icon-text{
+        font-size:.24rem;
+        padding-top:4%;  
+        margin-left:.3rem; 
+        padding-bottom:4%;
+    }
+    .thumbnail img{
+        border-radius: 50%;
+    }
+    .bui-text{
+        color:black;
+        font-size:.25rem;
+    }
+    .user-name{
+        color:orange;
+    }
+    .state{
+        float:right;
+        margin-right:20%;
+    }
+    /* .shortcut-nav{
+        margin-top: 0.2rem;
+    } */
+    .shortcut-nav [class*=bui-btn]{
+        padding: 0.15rem 0;
+        border: none;
+    }
+    /* .shortcut-nav [class*=bui-btn] .icon{
+        color: #ffffff;
+        height: 0.7rem;
+        width: 0.7rem;
+        border-radius: 50%;
+        line-height: 0.7rem;
+        margin: 0.1rem 0;
+        font-size: .5rem;
+    } */
+    
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+            <div class="bui-bar-left"">
+                    <a onclick="" class="bui-btn">
+                        <i class="icon">&#xe61a;</i>
+                    </a>
+            </div>
+            <div class="bui-bar-main">
+                    消息
+            </div>
+            <div class="bui-bar-right">  
+            </div>
+        </header>
+      <main>
+          <div class="up3">
+            <ul class="bui-nav">
+                <li class="bui-btn bui-box-vertical"><img src="images/bub.png"><div class="span1 icon-text">答题记录</div></li>
+                <li class="bui-btn bui-box-vertical"><img src="images/square.png"><div class="span1 icon-text">收到答卷</div></li>
+                <li class="bui-btn bui-box-vertical"><img src="images/circle.png"><div class="span1 icon-text">我的cp</div></li>
+            </ul>
+
+          </div>
+          <div>  
+            <ul class="bui-list news-list">
+                <li class="bui-btn bui-box-align-middle">
+                    <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                    <div class="span1">
+                        <div class="bui-text">我向<span class="user-name">薛城</span>提交了答案</div>
+                    </div>    
+                    <div class="span1">
+                        <div class="state">待阅</div>
+                    </div>
+                </li>
+                <li class="bui-btn bui-box-align-middle">
+                    <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
+                    <div class="span1">
+                        <div class="bui-text">我向<span class="user-name">大橙子</span>提交了答案</div>
+                    </div>    
+                    <div class="span1">
+                        <div class="state">已阅</div>
+                    </div>
+                </li>   
+            </ul>
+          </div>
+      </main>
+      <footer>
+      <ul id="tabDynamicNav" class="bui-nav main-nav">
+            <li class="bui-btn bui-box-vertical" href="04.html">
+                <i class="icon">&#xe600;</i>
+                <div class="span1">广场</div>
+            </li>
+            
+            <li class="bui-btn bui-box-vertical active" href="06.html">
+                <i class="icon">&#xe677;</i>
+                <div class="span1">消息</div>
+            </li>
+            <li class="bui-btn bui-box-vertical" href="05.html">
+                <i class="icon">&#xe67a;</i>
+                <div class="span1">我的</div>
+            </li>
+            
+        </ul>
+        </footer>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

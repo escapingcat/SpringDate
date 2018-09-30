@@ -1,0 +1,96 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .login-form{
+       margin-top:30%;
+
+     }
+    .user-input{
+        margin-left:.5rem;
+    }
+    .btn-send{
+        display: inline-block;
+        color: #52a4ff;
+        font-size: 0.2rem;
+        padding: 0 0.1rem;
+        min-height: .4rem;
+        height: .5rem;
+        line-height: .5rem;
+        border: 1px solid #52a4ff;
+        margin-right:.2rem;
+        
+    }
+    .btn-send.disabled {
+        border: 1px solid #dedede;
+    }
+	.buttonSpan{
+		padding-right:.2rem;
+	}
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+          <div class="bui-bar-left" onclick="bui.back();">
+              <a onclick="bui.back()" class="bui-btn">
+                  <i class="icon-back"></i>
+              </a>
+          </div>
+
+        <div class="bui-bar-main">
+          手机号码注册
+        </div>
+        <div class="bui-bar-right">
+        </div>
+      </header>
+      <main>
+	  <div id="verifyVM">
+          <div class="login-form">
+              <ul class="bui-list">
+                  <li class="bui-btn bui-box clearactive">
+                      <div class="span1">
+                          <div class="bui-input user-input">
+                              <input id="phonenumber" type="text" placeholder="请输入手机号码" v-model="inputText.tel">
+                          </div>
+                      </div>
+                  </li>
+                  <li class="bui-btn bui-box clearactive">
+                      <div class="span1">
+                          <div class="bui-input user-input">
+                              <input id="code" type="text" placeholder="请输入验证码" v-model="inputText.code">
+                          </div>
+                      </div>
+					<div class="buttonSpan">
+                    <button class="bui-btn round btn-send" v-on:click="send" v-bind:disabled="sendMsgDisabled">
+					    <span v-if="sendMsgDisabled">{{time + "秒后获取"}}</span>
+						<span v-if="!sendMsgDisabled">发送验证码</span>
+					</button>
+					</div>
+					
+
+                  </li>
+              </ul>
+			</div>
+              <button class="bui-btn round primary" v-on:click="verify">确认</button>
+	</div>
+      </main>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script src="js/verify.js"></script>
+  </body>
+</html>

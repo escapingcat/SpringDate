@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css1/bui.css" />
+   <link rel="stylesheet" href="css1/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .login-page main{
+        background-color: #ffffff;
+    }
+    .login-form {
+        padding-left: .3rem;
+        padding-right: .3rem;
+    }
+    .login-form .bui-list{
+        border-top: none;
+        margin-bottom: .3rem;
+    }
+    .login-form .bui-btn{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .login-form .bui-input {
+        height: .7rem;
+    }
+    .login-form .primary{
+        background-color: #52a4ff;
+        color: #ffffff;
+        font-size: 0.26rem;
+        -webkit-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        margin-bottom: .2rem;
+    }
+    .login-form{
+        text-align: center;
+        color: black;
+        font-size: 0.2rem;
+    }
+    .username{
+        height:.5rem;
+        margin-left:.3rem;
+        line-height:.5rem;
+    }
+    .tip>p{
+        color:red;
+        font-size:.1rem;
+        margin-left:.3rem;
+        height:.3rem;
+        line-height:.3rem;
+    }
+    .bui-label{
+        height:.3rem;
+        color:black;
+        font-size:.25rem;
+        line-height:.3rem;
+        margin:.15rem 0;
+        float:left;
+    } 
+    textarea{
+        text-align:center;
+        overflow: auto;
+    }
+    .primary,.round{
+        margin-top:.2rem;
+    }
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+            <div class="bui-bar-left" onclick="bui.back();">
+                    <a onclick="bui.back()" class="bui-btn">
+                        <i class="icon-back"></i>
+                    </a>
+                </div>
+            <div class="bui-bar-main">
+                    中国大学生交友资格认证试题
+            </div>
+            <div class="bui-bar-right">
+            </div>
+        </header>
+      <main>
+          <div class="username">
+              <label for="">出题人：</label>
+              <span>User Name</span>
+          </div>
+          <div class="tip">
+              <p>Tips:</p>
+              <p>试卷是展示自己的重要方式。用心出题，才能收获更多真诚的回答</p>
+          </div>
+            <div class="login-form">
+                <ul>
+                     <li>
+                        <label class="bui-label">第1题</label>
+                         <div class="chatbar">
+                                <div class="bui-input">
+                                    <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
+                                 </div>
+                        </div>
+                    </li>  
+                    <li>
+                        <label class="bui-label">第2题</label>
+                        <div class="chatbar">
+                            <div class="bui-input">
+                                <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
+                            </div>
+                        </div>
+                    </li>  
+                    <li>
+                        <label class="bui-label">第3题</label>
+                        <div class="chatbar">
+                            <div class="bui-input">
+                                <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
+                            </div>
+                        </div>
+                    </li>  
+                    <button class="bui-btn round">继续出题</button>
+                    <li>
+                            <label class="bui-label"><b>试题说明</b></label>
+                            <div class="chatbar">
+                                <div class="bui-input">
+                                    <textarea class="text-area" placeholder="确定不对答题者说点什么？"></textarea> 
+                                </div>
+                            </div>
+                        </li> 
+                </ul>
+            <div class="bui-btn round primary">完成出题</div>
+        </div>
+      </main>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script>
+    </script>
+  </body>
+</html>
