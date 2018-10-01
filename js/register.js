@@ -8,19 +8,32 @@ var registerVM = new Vue({
 	data(){
 		return{
 			user:{
+				tel:null,
 				photo:null,
-				name:null,
+				nikename:null,
 				motto:null,
 				gender:null,
 				birth:null,
-				home:null,
-				school:null,
+				hometown:null,
+				university:null,
 				major:null,
-				interest:null,
 			},
 		}
 	},
+	mounted:function(){
+		this.getTel("tel");
+	},
 	methods:{
+		getTel: function(name){
+			let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			let r = window.location.search.substr(1).match(reg);		
+			 if (r!= null) {
+				this.user.tel = unescape(r[2]);
+				console.log(this.user.tel)
+			 }else{
+				alert("获取失败")
+			 }
+		},
 		onfilechange: function(e){
 			var files = e.target.files || e.dataTransfer.files;
 			if (!files.length)return;
@@ -37,7 +50,7 @@ var registerVM = new Vue({
 		},
 		sendRegiser(){
 			console.log(this.user);
-			urls = "/step/testRegister"
+			urls = "http://escapecat.imwork.net:8080/step/testRegister"
 			let user = this.user;
 			for(let item in user){
 				if(user[item] == null){
@@ -49,15 +62,19 @@ var registerVM = new Vue({
 					console.log(user[item]);
 				}
 			}
+			let param = new FormData();
+			for(let p in this.user){
+				param.append(p, this.user[p])
+			}
 			axios({
 				headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
                 },
 			  method: 'post',
 			  url: urls,
-			  data: this.transformRequest(user)
+			  data: param
 			}).then((response) =>{
-				window.location.href='./03.html';
+				window.location.href='./setQuestion.html?nickname'+this.user.nickname;
 				console.log("pass")
 			}).catch((response) =>{
 				console.log(response)

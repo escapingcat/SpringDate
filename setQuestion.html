@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
   <title>大学生交友平台</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-   <link rel="stylesheet" href="css1/bui.css" />
-   <link rel="stylesheet" href="css1/style.css" />
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
 
      <!-- bui 的依赖库 -->
   
@@ -89,9 +89,10 @@
             </div>
         </header>
       <main>
+	  <div id="setQuestion">
           <div class="username">
               <label for="">出题人：</label>
-              <span>User Name</span>
+              <span>{{nickname}}</span>
           </div>
           <div class="tip">
               <p>Tips:</p>
@@ -99,48 +100,36 @@
           </div>
             <div class="login-form">
                 <ul>
+				  <template v-for="(index, q) in questions">
                      <li>
-                        <label class="bui-label">第1题</label>
+                        <label class="bui-label">第{{q + 1}}题</label>
                          <div class="chatbar">
                                 <div class="bui-input">
-                                    <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
+                                    <textarea class="text-area" placeholder="请输入您的问答题" v-model="questions[q]"></textarea> 
                                  </div>
                         </div>
-                    </li>  
-                    <li>
-                        <label class="bui-label">第2题</label>
-                        <div class="chatbar">
-                            <div class="bui-input">
-                                <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
-                            </div>
-                        </div>
-                    </li>  
-                    <li>
-                        <label class="bui-label">第3题</label>
-                        <div class="chatbar">
-                            <div class="bui-input">
-                                <textarea class="text-area" placeholder="请输入您的问答题"></textarea> 
-                            </div>
-                        </div>
-                    </li>  
-                    <button class="bui-btn round">继续出题</button>
+                    </li> 
+				  </template> 
+        <button class="bui-btn round" v-on:click="addQuestion">继续出题</button>
+		<button class="bui-btn round" v-on:click="removeQuestion">删除题目</button>
                     <li>
                             <label class="bui-label"><b>试题说明</b></label>
                             <div class="chatbar">
                                 <div class="bui-input">
-                                    <textarea class="text-area" placeholder="确定不对答题者说点什么？"></textarea> 
+                                    <textarea class="text-area" placeholder="确定不对答题者说点什么？" v-model="remarks"></textarea> 
                                 </div>
                             </div>
                         </li> 
                 </ul>
-            <div class="bui-btn round primary">完成出题</div>
+            <div class="bui-btn round primary" v-on:click="sendQuestion">完成出题</div>
         </div>
+		</div>
       </main>
     </div>
     <script src="js/zepto.js"></script>
-  <!-- BUI 的脚本库 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
    <script src="js/bui.js"></script>
-    <script>
-    </script>
+   <script src="js/setQuestion.js"></script>
   </body>
 </html>

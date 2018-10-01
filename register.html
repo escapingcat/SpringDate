@@ -125,10 +125,10 @@
             <div class="login-form">
                     <ul class="bui-list">
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="Name">昵称</label>
+                            <label class="bui-label" for="nikename">昵称</label>
                             <div class="span1">
                                 <div class="bui-input user-input">
-                                    <input id="name" type="text" name="Name" v-model="user.name" autofocus>
+                                    <input id="nikename" type="text" name="nikename" v-model="user.nikename" autofocus>
                                 </div>
                             </div>
                         </li>
@@ -160,18 +160,18 @@
                             </div>
                         </li>  
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="home">家乡</label>
+                            <label class="bui-label" for="hometown">家乡</label>
                                 <div class="span1">
                                     <div class="bui-input user-input">
-                                        <input  type="text" name="home" v-model="user.home">
+                                        <input  type="text" name="hometown" v-model="user.hometown">
                                     </div>
                                 </div>
                         </li>
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="school">学校</label>
+                            <label class="bui-label" for="university">学校</label>
                                 <div class="span1">
                                     <div class="bui-input user-input">
-                                        <input type="text" name="school" v-model="user.school">
+                                        <input type="text" name="university" v-model="user.university">
                                     </div>
                                 </div>
                         </li>
@@ -182,15 +182,7 @@
                                         <input  type="text" name="major" v-model="user.major">
                                     </div>
                                 </div>
-                        </li>  
-                        <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="interest">兴趣</label>
-                                <div class="span1">
-                                    <div class="bui-input user-input">
-                                        <input  type="text" name="interest" v-model="user.interest">
-                                    </div>
-                                </div>
-                        </li> 						
+                        </li>  						
                     </ul>
                     <div class="bui-btn round primary" v-on:click="sendRegiser">确定</div>
                 </div>
