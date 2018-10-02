@@ -29,7 +29,7 @@
 			let param = new FormData();
 			param.append("questions", this.questions);
 			param.append("remarks", this.remarks);
-			urls = "http://escapecat.imwork.net:8080/step/testSetQuestion"
+			urls = "http://escapecat.imwork.net:8080/step/postquestions"
 			axios({
 				headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'

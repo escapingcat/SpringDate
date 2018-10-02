@@ -14,7 +14,7 @@
            background:rgb(255,192,203);
        }
     .up{
-        height:1.5rem;
+        height:0.8rem;
         font-size:.25rem;
         color:white;
         padding-left:20%;
@@ -218,6 +218,7 @@
    <script src="js/jquery-1.11.1.js"></script>
    <script src="js/zepto.js"></script>
     <script src="js/bui.js"></script>
+
     
     <script>
         $(function(){
@@ -274,67 +275,45 @@
       <main>
           <ul class="content1">
               <li id="square" class="show">
-                    <div class="up " style="position:relative;">
-                            <!-- <div style="z-index:-1;width:100%;height:100%;"><img src="images/love.jpg" style="width:100%;height:100%" alt=""></div> -->
-                            <div>已配对：<span class="sum">280</span><span class="team">对</span></div>
-                            <div>剩余名额：<span class="sum">100</span><span class="team">对</span></div>
+                    <div class="up" style="position:relative;">
+                            <div>已配对：<span class="sum">{{dated}}</span><span class="team">对</span></div>
                         </div>
                         <div>  
                           <ul class="bui-list news-list">
-                              <li class="bui-btn bui-box-align-top list" >
+						  <template v-for="p in persons"> 
+                              <li class="bui-btn bui-box-align-top list" v-on:click="toDetail(p.tel)">
                                   <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
                                   <div class="span1">
-                                      <h3 class="item-title">权律二</h3>
-                                      <div class="item-info"><span><img src="images/f.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
+                                      <h3 class="item-title">{{p.nickname}}</h3>
+									  <div v-if="p.gender == '女'">
+									  <div class="item-info">
+									  <span><img src="images/f.png" alt=""></span>
+									  <span class="age">{{p.age}}</span></div>
+									  </div>
+									  <div v-else>
+									  <div class="item-info" style="background: #97FFFF;">
+									  <span><img src="images/m.png" alt=""></span>
+									  <span class="age">{{p.age}}</span></div>
+									  </div>
+									  
                                       <div class="item-text bui-box">
                                           <div class="span1">
-                                              <div class="item-sig">个性签名</div>
+                                              <div class="item-sig">{{p.motto}}</div>
                                               </div>     
                                       </div>
                                   </div>    
                                   <div class="span1">
-                                      <p class="school">西安交通大学</p><br/>
+                                      <p class="school">{{p.university}}</p><br/>
                                       <p class="single">单</p>
                                   </div>
                               </li>
-                              <li class="bui-btn bui-box-align-top">
-                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
-                                  <div class="span1">
-                                      <h3 class="item-title">权律二</h3>
-                                      <div class="item-info" style="background: #97FFFF;"><span><img src="images/m.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
-                                      <div class="item-text bui-box">
-                                          <div class="span1">
-                                              <div class="item-sig">个性签名</div>
-                                              </div>     
-                                      </div>
-                                  </div>    
-                                  <div class="span1">
-                                      <p class="school">西安交通大学</p><br/>
-                                      <p class="single">单</p>
-                                  </div>
-                              </li>
-                              <li class="bui-btn bui-box-align-top">
-                                  <div class="thumbnail"><img src="images/1.jpg" alt=""></div>
-                                  <div class="span1">
-                                      <h3 class="item-title">权律二</h3>
-                                      <div class="item-info"><span><img src="images/f.png" alt=""><span class="age">20</span><span class="star">双鱼</span></div>
-                                      <div class="item-text bui-box">
-                                          <div class="span1">
-                                              <div class="item-sig">个性签名</div>
-                                              </div>     
-                                      </div>
-                                  </div>    
-                                  <div class="span1">
-                                      <p class="school">西安交通大学</p><br/>
-                                      <p class="single">单</p>
-                                  </div>
-                              </li>  
+							</template>
                           </ul>
-                        </div>
-                   
+                        </div>          
              </li>
+
              
-             <li>
+             <li id="message">
                 <div class="up3">
                     <ul class="bui-nav">
                         <li class="bui-btn bui-box-vertical"><img src="images/bub.png"><div class="span1 icon-text">答题记录</div></li>
@@ -366,7 +345,8 @@
                           </ul>
                         </div>
              </li>
-             <li >
+			 
+             <li id="homepage">
                     <ul class="bui-list news-list ">
                             <li class="bui-btn bui-box-align-top bui-li">
                                 <div class="thumbnail1"><img src="images/1.jpg" alt=""></div>
@@ -451,6 +431,8 @@
                 </ul>
       </footer>
     </div>  
-    
+ 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script src="js/slide.js"></script>   
   </body>
 </html>

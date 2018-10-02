@@ -20,7 +20,7 @@ var verifyVM = new Vue({
                 alert("手机格式不正确");
 			}else{
 			me.sendMsgDisabled = true;
-			urls = "http://escapecat.imwork.net:8080/step/testSend"
+			urls = "http://escapecat.imwork.net:8080/step/getcode"
 			let param = new FormData();
 			param.append('tel', me.inputText.tel)
 			axios({
@@ -54,7 +54,7 @@ var verifyVM = new Vue({
 			for(let p in this.inputText){
 				param.append(p, this.inputText[p])
 			}
-			urls = "http://escapecat.imwork.net:8080/step/testVerify"
+			urls = "http://escapecat.imwork.net:8080/step/login"
 			axios({
 				headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
