@@ -66,11 +66,11 @@
                       </div>
                   </li>
                   <li class="bui-btn bui-box clearactive">
-                      <div class="span1">
+                    <div class="span1">
                           <div class="bui-input user-input">
                               <input id="code" type="text" placeholder="请输入验证码" v-model="inputText.code">
                           </div>
-                      </div>
+                    </div>
 					<div class="buttonSpan">
                     <button class="bui-btn round btn-send" v-on:click="send" v-bind:disabled="sendMsgDisabled">
 					    <span v-if="sendMsgDisabled">{{time + "秒后获取"}}</span>

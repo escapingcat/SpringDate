@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .login-form{
+       margin-top:.4rem;
+
+     }
+    .user-input{
+        margin-left:.5rem;
+       
+    }
+    .text-area{
+        width:100%;
+        margin-bottom:.3rem;
+        height:1.5rem;
+    }
+    .btn-send{
+        display: inline-block;
+        color: #52a4ff;
+        font-size: 0.2rem;
+        padding: 0 0.1rem;
+        min-height: .4rem;
+        height: .5rem;
+        line-height: .5rem;
+        border: 1px solid #52a4ff;
+        margin-right:.8rem;        
+    }
+    .btn-send.disabled {
+        border: 1px solid #dedede;
+    }
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+          <div class="bui-bar-left" onclick="bui.back();">
+              <a onclick="bui.back()" class="bui-btn">
+                  <i class="icon-back"></i>
+              </a>
+          </div>
+
+        <div class="bui-bar-main">
+          意见反馈
+        </div>
+        <div class="bui-bar-right">
+        </div>
+      </header>
+      <main>
+	    <div id="feedbackVM">
+        <div class="login-form">   
+                <textarea class="text-area" placeholder="请填写问题描述，您可以留下邮箱方便我们与您联系" v-model="feedback"></textarea> 
+                                      
+                <div class="bui-btn round primary" style="width:60%;" v-on:click="sendFeedback">提交</div>
+        </div>  
+		</div>		
+      </main>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="js/feedback.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

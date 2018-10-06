@@ -9,18 +9,11 @@
 		}
 	},
 	mounted:function(){
-		this.getName("nickname");
+		this.getName();
 	},
 	methods:{
-		getName: function(name){
-			let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			let r = window.location.search.substr(1).match(reg);		
-			 if (r!= null) {
-				this.nickname = unescape(r[2]);
-				console.log(this.nickname)
-			 }else{
-				alert("获取失败")
-			 }
+		getName: function(){
+			this.nickname = "test"
 		},
 		sendQuestion(){
 			for(let q in this.questions){

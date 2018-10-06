@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="en-US">
   <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -117,18 +117,18 @@
             </div>
         </header>
       <main>
-	  <div id="registerVM">
+	  <div id="editProfileVM">
 	<div class="con4">
-		<img src="./images/face.png" class="round_icon" preview alt="" id="icon">
+		<img :src="user.icon" class="round_icon" preview alt="profile" id="icon">
 		<span class="btn upload">上传头像<input type="file" class="upload_pic" id="upload" v-on:change="onfilechange"/></span>
 	</div>
             <div class="login-form">
                     <ul class="bui-list">
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="nikename">昵称</label>
+                            <label class="bui-label" for="nickname">昵称</label>
                             <div class="span1">
                                 <div class="bui-input user-input">
-                                    <input id="nikename" type="text" name="nikename" v-model="user.nikename" autofocus>
+                                    <input id="nickname" type="text" name="nickname" v-model="user.nickname" autofocus>
                                 </div>
                             </div>
                         </li>
@@ -141,30 +141,21 @@
                             </div>
                         </li>
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label">性别</label>
-                                <div class="span1">
-                                    <div class="bui-input user-input">
-                                        <input id="sex1" type="radio" name="sex" v-model="user.gender" value="男">男
-                                        <input id="sex2" type="radio" name="sex" v-model="user.gender" value="女">女
-                                     </div>
-                                </div>
-                        </li>
-                         <li class="bui-btn bui-box clearactive">
                             <label class="bui-label" for="height">身高(cm)</label>
                             <div class="span1">
                                 <div class="bui-input user-input">
                                     <input  type="text" name="height" v-model="user.height">
-                                </div>
+                                 </div>
                             </div>
-                        </li> 
-                         <li class="bui-btn bui-box clearactive">
+                        </li>
+                        <li class="bui-btn bui-box clearactive">
                             <label class="bui-label" for="weight">体重(kg)</label>
                             <div class="span1">
                                 <div class="bui-input user-input">
                                     <input  type="text" name="weight" v-model="user.weight">
-                                </div>
+                                 </div>
                             </div>
-                        </li> 
+                        </li>
                          <li class="bui-btn bui-box clearactive">
                             <label class="bui-label" for="birth">生日</label>
                             <div class="span1">
@@ -177,18 +168,7 @@
                             <label class="bui-label" for="hometown">家乡</label>
                                 <div class="span1">
                                     <div class="bui-input user-input">
-									 <select v-model="user.province" v-on:change="getProv()">
-										  <option disabled value="null">请选择</option>
-										  <option v-for="item in provs"
-												  :label="item.label"
-												  :value="item.value"></option>
-									</select>
-									 <select v-model="user.city" v-on:change="getCity($event)">
-										  <option disabled value="null">请选择</option>
-										  <option v-for="item in citys"
-												  :label="item.label"
-												  :value="item.value"></option>
-									</select>
+                                        <input  type="text" name="hometown" v-model="user.hometown">
                                     </div>
                                 </div>
                         </li>
@@ -201,31 +181,13 @@
                                 </div>
                         </li>
                         <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="subject">专业</label>
-                                <div class="span1">
-                                    <div class="bui-input user-input">
-									 <select v-model="user.subject">
-										  <option disabled value="null">请选择</option>
-										  <option>哲学</option>
-										  <option>理学</option>
-										  <option>经济学</option>
-										  <option>法学</option>
-										  <option>文学</option>
-										  <option>医学</option>
-										  <option>管理学</option>
-										  <option>工学</option>
-									</select>
-                                    </div>
-                                </div>
-                        </li>
-                        <li class="bui-btn bui-box clearactive">
                             <label class="bui-label" for="major">专业</label>
                                 <div class="span1">
                                     <div class="bui-input user-input">
-									 <input type="text" name="major" v-model="user.major">
+                                        <input  type="text" name="major" v-model="user.major">
                                     </div>
                                 </div>
-                        </li>
+                        </li>  
                         <li class="bui-btn bui-box clearactive">
                             <label class="bui-label" for="education">学历</label>
                                 <div class="span1">
@@ -234,20 +196,19 @@
 									  <option>本科</option>
 									  <option>硕士</option>
 									  <option>博士</option>
-									  <option>其他</option>
 								</select>
                             </div>
                         </li>
-                        <li class="bui-btn bui-box clearactive">
-                            <label class="bui-label" for="interest">兴趣爱好</label>
-                                <div class="span1">
-                                    <div class="bui-input user-input">
-                                        <input  type="text" name="interest" v-model="user.interest">
-                                    </div>
-                            </div>
-                        </li> 						
+						<li class="bui-btn bui-box clearactive bui-li3">
+							<label class="bui-label">兴趣爱好</label>
+							<div class="span1">
+                                <div class="bui-input user-input">
+                                    <input  type="text" name="interest" v-model="user.interest">
+                                </div>
+							</div>
+						</li>							
                     </ul>
-                    <div class="bui-btn round primary" v-on:click="sendRegiser">确定</div>
+                    <div class="bui-btn round primary" v-on:click="editProfile">确定</div>
                 </div>
         </div>
       </main>
@@ -258,7 +219,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="js/vue-photo-preview.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="js/register.js"></script>
+    <script type="text/javascript" src="js/editProfile.js"></script>
     <script>
     </script>
   </body>

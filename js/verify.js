@@ -1,4 +1,3 @@
-
 var verifyVM = new Vue({
 	el: "#verifyVM",
 	data(){
@@ -54,7 +53,7 @@ var verifyVM = new Vue({
 			for(let p in this.inputText){
 				param.append(p, this.inputText[p])
 			}
-			urls = "http://escapecat.imwork.net:8080/step/login"
+			urls = "http://escapecat.imwork.net:8080/step/testVerify"
 			axios({
 				headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'

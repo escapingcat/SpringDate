@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+   <link rel="stylesheet" type="text/css" href="css/skin.css"/>
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+       header{
+           background:rgb(255,192,203);
+       }
+    .bui-li{
+        background-color: deepskyblue;
+    }
+
+    .thumbnail1{
+        width:1.2rem;
+        height:100%;
+    }
+    .thumbnail1 img{
+        width:100%;
+        height:100%;
+        border-radius: 50%;
+       margin:20% 20%;
+       position:relative;
+    }
+    
+    .sex img{
+        width:.2rem;
+        height:.2rem;
+        position:absolute;
+        left:-.2rem;
+        top:-.4rem;
+    }
+    .sec-ul li{
+        list-style: none;
+        padding-left:20%;
+        text-align:left;
+        color:white;
+        /* height:40%; */
+        line-height: .35rem;
+        font-size:.25rem;
+        margin-top:.1rem;
+    }
+    .sec-ul li a{
+        height:100%;
+    }
+    .sec-ul .first{
+        font-weight: bold;
+        font-size:.26rem;
+        margin-top:.2rem;
+    }
+    .input-li{
+        margin-left:.2rem;
+    }
+    .bui-label{
+        /* margin:.2rem; */
+        margin:.12rem .2rem;
+    }
+    .bui-value{
+        margin-right:.3rem;
+        float:right;
+    }
+    /* .bui-li3{
+        height:15%;
+    } */
+    .bui-li4{
+        height:25%;
+    }
+    .bui-li4 img{
+        width:30%;
+        height:100%;
+    }
+    .bui-li4 bui-btn{
+        text-align: center;
+        padding-left:20%;
+    }
+    .btn{
+        width:50%;
+        height:100%;
+        float:left;
+    }
+    .edit-div{
+        background: #eee;
+    }
+    .bui-edit{
+        border-right:.02rem solid black; 
+    }
+	.album{
+		float:left;
+		margin:0.05rem;
+
+	}
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+      <header class="bui-bar">
+        </header>
+      <main>
+	  <div id="infoVM">
+        <ul class="bui-list news-list ">
+            <li class="bui-btn bui-box-align-top bui-li">
+                <div class="thumbnail1">
+				<img :src="person.icon" preview alt="" id="face">
+				<div v-if="person.gender == '男'">
+                <div class="sex"><img src="images/m.png" alt="" ></div>
+				</div>
+				<div v-else>
+				<div class="sex"><img src="images/f.png" alt="" ></div>
+				</div>
+            </div>
+                <div class="span1">
+                    <ul class="bui-list sec-ul">
+                        <li class="first">姓名:&nbsp&nbsp<span class="input-li">{{person.nickname}}</span></li>
+                        <li>签名：<span class="input-li">{{person.motto}}</span></li>
+						<li>学校：<span class="input-li">{{person.university}}</span></li>
+                        <li>专业：<span class="input-li">{{person.major}}</span></li>
+                    </ul>
+                </div>    
+            </li>
+        </ul>
+        <ul class="bui-list contact-list">
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label ">家乡：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.hometown}}</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">身高：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.height}}cm</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">体重：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.weight}}kg</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">出生日期：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.birth}}</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">学历：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.education}}</div>
+                </div>
+            </li>  
+            <li class="bui-btn bui-box clearactive bui-li3">
+                <label class="bui-label">兴趣爱好：</label>
+                <div class="span1">
+                    <div class="bui-value">{{person.interest}}</div>
+                </div>
+            </li>
+            <li class="bui-btn bui-box clearactive bui-li4">
+                <label class="bui-label">相册：</label>
+                <div class="span1">
+				<div v-for="(val,index) in person.photos">
+					<img :src="val" :alt="index"  preview="1" class="album">
+				</div>
+				</div>
+            </li>
+            <li class="bui-btn bui-box clearactive">
+                <div class="span1"><div class="bui-btn edit-div" v-on:click="directAnswer">回答TA的答卷</div>
+			</div>
+                </li>
+        </ul>        
+	  </div>
+      </main>
+      <footer>
+        </footer>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="js/vue-photo-preview.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

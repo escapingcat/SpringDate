@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>大学生交友平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="css/bui.css" />
+   <link rel="stylesheet" href="css/style.css" />
+
+     <!-- bui 的依赖库 -->
+  
+   <style>
+     .login-page main{
+        background-color: #ffffff;
+    }
+    .login-form {
+        padding-left: .3rem;
+        padding-right: .3rem;
+    }
+    .login-form .bui-list{
+        border-top: none;
+        margin-bottom: .3rem;
+    }
+    .login-form .bui-btn{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .login-form .bui-input {
+        height: .7rem;
+    }
+    .login-form .primary{
+        background-color: #52a4ff;
+        color: #ffffff;
+        font-size: 0.26rem;
+        -webkit-border-radius: 0.06rem;
+        border-radius: 0.06rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        margin-bottom: .2rem;
+    }
+    .login-form{
+        text-align: center;
+        color: black;
+        font-size: 0.2rem;
+    }
+    .username{
+        height:.3rem;
+        margin-left:.3rem;
+        line-height:.3rem;
+    }
+    .tip>p{
+        color:red;
+        font-size:.1rem;
+        margin-left:.3rem;
+        height:.28rem;
+        line-height:.3rem;
+    }
+    .qu-label{
+        height:.2rem;
+        color:black;
+        font-size:.25rem;
+        line-height:.3rem;
+        margin:.15rem 0;
+        float:left;
+    } 
+    textarea{
+        text-align:center;
+        overflow: auto;
+    }
+    .primary,.round{
+        margin-top:.2rem;
+    }
+   </style>
+  </head>
+  <body>
+    <!-- 页面标准模板,包含 header(非必须) main footer(非必须) -->
+    <div class="bui-page">
+      <!--固定在顶部结构 header-->
+	  	  <div id="answerVM">
+      <header class="bui-bar">
+            <div class="bui-bar-left" onclick="bui.back();">
+                    <a onclick="bui.back()" class="bui-btn">
+                        <i class="icon-back"></i>
+                    </a>
+                </div>
+            <div class="bui-bar-main">
+                    <span class="UserName">{{person.nickname}}</span>的试题
+            </div>
+            <div class="bui-bar-right">
+            </div>
+        </header>
+      <main>
+          <div class="username">
+              <label for="">出题人：</label>
+              <span>{{person.nickname}}</span>
+          </div>
+          <div class="username">
+                <label for="">答题人：</label>
+                <span>{{me.nickname}}</span>
+           </div>
+          <div class="tip">
+              <p>Tips:</p>
+              <p>答卷是展示个人的绝佳方式。认真答题，才能组到cp哟！</p>
+          </div>
+            <div class="login-form">
+                <ul>
+				  <template v-for="(index, p) in papers">
+                        <label class="qu-label">第{{p + 1}}题:<span>{{index}}</span></label>
+                         <div class="chatbar">
+                                <div class="bui-input">
+                                    <textarea class="text-area" placeholder="请输入您的答案" v-model="answer[p]"></textarea> 
+                                 </div>
+                        </div>
+				  </template>   
+                                <li>
+                                        <label class="qu-label"><span>对ta的话</span></label>
+                                         <div class="chatbar">
+                                                <div class="bui-input">
+                                                    <textarea class="text-area" placeholder="请输入您的答案" v-model="remarks"></textarea> 
+                                                 </div>
+                                        </div>
+                                    </li>  
+                </ul>
+            <div class="bui-btn round primary" v-on:click="sendAnswer">回答问题</div>
+        </div>
+		</div>
+      </main>
+    </div>
+    <script src="js/zepto.js"></script>
+  <!-- BUI 的脚本库 -->
+   <script src="js/bui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="js/answer.js"></script>
+  </body>
+</html>
